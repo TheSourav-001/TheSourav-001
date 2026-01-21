@@ -1,0 +1,36 @@
+name: Generate Snake
+
+on:
+  # প্রতিদিন রাত ১২টায় অটোমেটিক রান হবে
+  schedule:
+    - cron: "0 0 * * *" 
+  
+  # অথবা ম্যানুয়ালি রান করার জন্য
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Generate Snake
+        uses: Platane/snk@v3
+        with:
+          # তোমার গিটহাব ইউজারনেম
+          github_user_name: TheSourav-001
+          
+          # আউটপুট হিসেবে এই ফাইলগুলো তৈরি হবে
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Push to Output Branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
