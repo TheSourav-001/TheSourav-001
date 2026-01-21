@@ -163,5 +163,6 @@ I am a final-year **B.Sc. in Software Engineering** student at **Daffodil Intern
 
 ---
 <p align="center">
-  <i>"Testing is an infinite process of comparing the invisible to the ambiguous in order to avoid the unthinkable."</i>
+  <i>"Testing is an infinite process of comparing the invisible to the ambiguous in order to avoid the unthinkable.
+— James Bach "</i>
 </p>
